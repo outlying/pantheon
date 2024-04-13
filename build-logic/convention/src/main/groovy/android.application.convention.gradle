@@ -1,10 +1,8 @@
 plugins {
-    // alias(libs.plugins.androidApplication)
-    // id libs.plugins.androidApplication.get().pluginId
     id "com.android.application"
     id "base.android.convention"
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
+
 }
