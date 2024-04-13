@@ -2,7 +2,7 @@ plugins {
     id 'android.application.convention'
 
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    //alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
