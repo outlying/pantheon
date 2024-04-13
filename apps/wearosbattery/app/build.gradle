@@ -1,6 +1,7 @@
 plugins {
     id 'android.application.convention'
 
+    // FIXME move Kotlin to convention
     //alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
