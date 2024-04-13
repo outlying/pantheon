@@ -1,3 +1,10 @@
 plugins {
-    id 'base.convention'
+    id "com.android.base"
+    id "org.jetbrains.kotlin.android"
+
+    id "base.convention"
+}
+
+android {
+
 }
