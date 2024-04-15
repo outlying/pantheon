@@ -24,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
-import com.antyzero.pantheon.common.ui.theme.PantheonApplicationTheme
 import com.antyzero.pantheon.common.ui.theme.PantheonWatchTheme
 import com.antyzero.pantheon.wearbattery.watch.R
 
