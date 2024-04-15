@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Pantheon"
 include ':apps:wearosbattery:app'
+include ':apps:wearosbattery:watch'
+include ':common:ui'

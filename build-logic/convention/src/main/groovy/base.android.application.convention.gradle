@@ -1,0 +1,18 @@
+/**
+ * Base configuration for Android Application modules
+ *
+ * This was added to have separate configuration for apps variations:
+ * phones, watches, TV, tablets
+ */
+plugins {
+    id "com.android.application"
+    id "base.android.convention"
+}
+
+android {
+
+}
+
+dependencies {
+    implementation(project(":common:ui"))
+}

@@ -1,3 +1,6 @@
+/**
+ * Base configuration for JVM modules (Java/Android)
+ */
 plugins {
     id "base.convention"
 }

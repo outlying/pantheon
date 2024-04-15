@@ -1,12 +1,12 @@
 plugins {
-    id 'android.application.convention'
+    id 'android.application.watch.convention'
 }
 
 android {
-    namespace 'com.antyzero.pantheon.wearbattery.app'
+    namespace "com.antyzero.pantheon.wearbattery.watch"
 
     defaultConfig {
-        applicationId "com.antyzero.pantheon.wearbattery.app"
+        applicationId "com.antyzero.pantheon.wearbattery.watch"
     }
 
     buildTypes {
@@ -15,7 +15,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     buildFeatures {
         compose true
     }

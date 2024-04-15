@@ -1,0 +1,30 @@
+/**
+ * Standard Android application modules
+ */
+plugins {
+    id "base.android.application.convention"
+}
+
+dependencies {
+    implementation libs.androidx.ui
+    implementation libs.androidx.ui.tooling.preview
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.androidx.compose.material
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.activity.compose
+    implementation libs.androidx.core.splashscreen
+
+    // Watch
+    implementation libs.play.services.wearable
+    implementation libs.androidx.wear.tiles
+    implementation libs.androidx.wear.tiles.material
+    implementation libs.horologist.compose.tools
+    implementation libs.horologist.tiles
+    implementation libs.androidx.watchface.complications.data.source.ktx
+
+    androidTestImplementation platform(libs.androidx.compose.bom)
+    androidTestImplementation libs.androidx.ui.test.junit4
+
+    debugImplementation libs.androidx.ui.tooling
+    debugImplementation libs.androidx.ui.test.manifest
+}

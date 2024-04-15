@@ -1,4 +1,4 @@
-package com.antyzero.pantheon.wearbattery.ui.theme
+package com.antyzero.pantheon.common.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -37,8 +37,27 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+/**
+ * Originally from wear generated module
+ */
 @Composable
-fun MyApplicationTheme(
+fun PantheonWatchTheme(
+    content: @Composable () -> Unit
+) {
+    /**
+     * Empty theme to customize for your app.
+     * See: https://developer.android.com/jetpack/compose/designsystems/custom
+     */
+    MaterialTheme(
+        content = content
+    )
+}
+
+/**
+ * Originally from app module
+ */
+@Composable
+fun PantheonApplicationTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

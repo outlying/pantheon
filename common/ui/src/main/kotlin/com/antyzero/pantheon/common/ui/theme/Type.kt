@@ -1,4 +1,4 @@
-package com.antyzero.pantheon.wearbattery.ui.theme
+package com.antyzero.pantheon.common.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,0 +1,7 @@
+plugins {
+    id 'android.library.convention'
+}
+
+android {
+    namespace "com.antyzero.pantheon.common.ui"
+}
