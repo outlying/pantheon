@@ -4,4 +4,13 @@ plugins {
 
 android {
     namespace "com.antyzero.pantheon.common.ui"
+
+    // FIXME convention would be nice for that
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.11'
+        kotlinCompilerVersion '1.5.10'
+    }
 }
