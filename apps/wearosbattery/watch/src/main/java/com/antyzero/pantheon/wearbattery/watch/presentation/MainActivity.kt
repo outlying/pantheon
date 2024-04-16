@@ -6,9 +6,12 @@
 
 package com.antyzero.pantheon.wearbattery.watch.presentation
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.app.NotificationManagerCompat
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
@@ -31,10 +35,29 @@ import com.antyzero.pantheon.wearbattery.watch.R
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
-
         super.onCreate(savedInstanceState)
         setTheme(android.R.style.Theme_DeviceDefault)
-        MonitoringService.start(this)
+
+        val requestPermission = RequestPermission()
+
+        val requestPermissionLauncher = registerForActivityResult(requestPermission) { isGranted ->
+            if(isGranted) {
+                MonitoringService.start(this)
+            } else {
+                // FIXME we should quit app with a message
+            }
+        }
+
+        // For notification enable, lower versions does not require this
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if(NotificationManagerCompat.from(this).areNotificationsEnabled()) {
+                MonitoringService.start(this)
+            } else {
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        } else {
+            MonitoringService.start(this)
+        }
 
         setContent {
             WearApp("Android")
