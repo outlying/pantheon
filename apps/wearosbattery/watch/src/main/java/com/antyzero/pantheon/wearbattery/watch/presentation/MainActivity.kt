@@ -25,6 +25,7 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.antyzero.pantheon.common.ui.theme.PantheonWatchTheme
+import com.antyzero.pantheon.wearbattery.watch.MonitoringService
 import com.antyzero.pantheon.wearbattery.watch.R
 
 class MainActivity : ComponentActivity() {
@@ -32,8 +33,8 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
-
         setTheme(android.R.style.Theme_DeviceDefault)
+        MonitoringService.start(this)
 
         setContent {
             WearApp("Android")

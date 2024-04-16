@@ -16,4 +16,5 @@ android {
 dependencies {
     // UI related dependencies, as app modules are about UI
     implementation(project(":common:ui"))
+    implementation(project(":common:android"))
 }
