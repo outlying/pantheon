@@ -1,4 +1,4 @@
-package com.antyzero.pantheon.wearbattery.watch.tile
+package com.antyzero.pantheon.wearbattery.watch.widgets.tile
 
 import android.content.Context
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package com.antyzero.pantheon.wearbattery.watch.complication
+package com.antyzero.pantheon.wearbattery.watch.widgets.complication
 
 import androidx.wear.watchface.complications.data.ComplicationData
 import androidx.wear.watchface.complications.data.ComplicationType

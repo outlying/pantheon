@@ -4,7 +4,7 @@
  * changes to the libraries and their usages.
  */
 
-package com.antyzero.pantheon.wearbattery.watch.presentation
+package com.antyzero.pantheon.wearbattery.watch
 
 import android.Manifest
 import android.os.Build
@@ -29,8 +29,6 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.antyzero.pantheon.common.ui.theme.PantheonWatchTheme
-import com.antyzero.pantheon.wearbattery.watch.MonitoringService
-import com.antyzero.pantheon.wearbattery.watch.R
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -33,6 +33,7 @@ class MonitoringService : Service() {
         val notificationBuilder = Notification.Builder(this, CHANNEL_ID)
             .setContentText("Monitoring watch status...")
             .setSmallIcon(android.R.drawable.sym_def_app_icon)
+            .setVibrate(null) // For older Androids
 
         startForeground(1, notificationBuilder.build())
 
@@ -68,18 +69,6 @@ class MonitoringService : Service() {
         this.registerReceiver(batteryLevelReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
     }
 
-    private fun createNotificationChannel() {
-        val name: CharSequence = getString(R.string.channel_name)
-        val description: String = getString(R.string.channel_description)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val channel = NotificationChannel(CHANNEL_ID, name, importance)
-        channel.description = description
-        val notificationManager: NotificationManager = getSystemService(
-            NotificationManager::class.java
-        )
-        notificationManager.createNotificationChannel(channel)
-    }
-
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
@@ -90,7 +79,7 @@ class MonitoringService : Service() {
     }
 
     companion object {
-        private const val CHANNEL_ID = "MonitoringServiceChannel"
+        internal const val CHANNEL_ID = "MonitoringServiceChannel"
 
         enum class Result {
             RUNNING, STARTED, MISSING_NOTIFICATION_PERMISSION
@@ -108,4 +97,17 @@ class MonitoringService : Service() {
             return Result.STARTED
         }
     }
+}
+
+fun Context.createNotificationChannel() {
+    val name: CharSequence = getString(R.string.channel_name)
+    val description: String = getString(R.string.channel_description)
+    val importance = NotificationManager.IMPORTANCE_DEFAULT
+    val channel = NotificationChannel(MonitoringService.CHANNEL_ID, name, importance)
+    channel.vibrationPattern = null
+    channel.description = description
+    val notificationManager: NotificationManager = getSystemService(
+        NotificationManager::class.java
+    )
+    notificationManager.createNotificationChannel(channel)
 }
